@@ -1,0 +1,483 @@
+<html>
+<head>
+	<meta charset = "utf-8"/>
+<title>Kattis Problems Table</title>
+<style>
+
+#tagInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: min(100%, 600px);
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+table {
+  width: min(100%, 600px);
+  border: 2px solid #000000;
+}
+
+th {
+  cursor: pointer;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+	border: solid #000;
+	border-width: 1px 0;
+}
+
+th {
+    background-color: #bacbf2;
+}
+
+</style>
+</head>
+<body>
+
+<input type="text" id="tagInput" onkeyup="tagFilter()" 
+    placeholder="Filter for single tags..." title="Type in a tag">    
+
+<table id="problemTable">
+	<tr>
+		<th onclick="sortTable(0)">Problem</th>
+		<th onclick="sortTable(1)">Difficulty</th>
+		<th>Tags</th>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/13floors>13 Floors</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/99problems>99 Problems</a></td>
+		<td>1 (Easy)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/cats>A Feast for Cats</a></td>
+		<td>2 (Medium)</td>
+		<td>mst prim kruskal</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/alittleleftoverpizza>A Little Leftover Pizza</a></td>
+		<td>0 (Beginner)</td>
+		<td>dictionary</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/areal>A Real Challenge</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic import</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/addtwonumbers>Add Two Numbers</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/amanda>Amanda Lounges</a></td>
+		<td>3 (Hard)</td>
+		<td>graph bfs</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/arithmeticadaptation>Arithmetic Adaptation</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/artinstallation>Art Installation</a></td>
+		<td>2 (Medium)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/bankclosing>Bank Closing</a></td>
+		<td>2 (Medium)</td>
+		<td>heap interactive</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/blackthorn>Blackthorn</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic if-else string</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/bumped>Bumped!</a></td>
+		<td>2 (Medium)</td>
+		<td>graph sssp dijkstra</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/busiestantlevel>Busiest Ant Level</a></td>
+		<td>1 (Easy)</td>
+		<td>graph bfs</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/callforproblemsround2>Call for Problems Round 2</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic set</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/catinabox>Cat in a Box</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/classphoto>Class Photo</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/classrooms>Classrooms</a></td>
+		<td>2 (Medium)</td>
+		<td>bst</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/clubpizza>Club Pizza</a></td>
+		<td>1 (Easy)</td>
+		<td>dictionary sorting</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/cupsandballs>Cups and Balls</a></td>
+		<td>1 (Easy)</td>
+		<td>basic simulation</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/democraticnaming>Democratic Naming</a></td>
+		<td>1 (Easy)</td>
+		<td>list dictionary</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/dickensiandictionary>Dickensian Dictionary</a></td>
+		<td>1 (Easy)</td>
+		<td>basic loop if-else string</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/easierdonethansaid>Easier Done than Said?</a></td>
+		<td>1 (Easy)</td>
+		<td>basic string tedious</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/kvallsfika>Evening Fika</a></td>
+		<td>1 (Easy)</td>
+		<td>basic sorting</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/vaeltetskorsten>Fallen Chimney</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic loop</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/figureskating>Figure Skating</a></td>
+		<td>1 (Easy)</td>
+		<td>basic list</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/findtheluckynumbers>Find the Lucky Numbers</a></td>
+		<td>1 (Easy)</td>
+		<td>basic 2d-list</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/findingforks>Finding forks</a></td>
+		<td>0.5 (Beginner)</td>
+		<td>basic list</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/freckles>Freckles</a></td>
+		<td>2 (Medium)</td>
+		<td>mst-euclidean</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/friendofafriend>Friend of a Friend</a></td>
+		<td>2.5 (Medium+)</td>
+		<td>union-find</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/froshweek2>Frosh Week</a></td>
+		<td>1 (Easy)</td>
+		<td>sorting loop</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/gottatradesomeofem>Gotta Trade Some of 'Em</a></td>
+		<td>2 (Medium)</td>
+		<td>graph bfs dfs</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/grandpabernie>Grandpa Bernie</a></td>
+		<td>1 (Easy)</td>
+		<td>list dictionary</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/grassseed>Grass Seed Inc.</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic loop</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/greetingcard>Greeting Card</a></td>
+		<td>2 (Medium)</td>
+		<td>set</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/gestalisti>Guest List</a></td>
+		<td>0.5 (Beginner)</td>
+		<td>basic set simulation</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/halloweenloot>Halloween Loot</a></td>
+		<td>3 (Hard)</td>
+		<td>dp</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/hello>Hello World!</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/historyofbeerpong>History of Beer Pong</a></td>
+		<td>2 (Medium)</td>
+		<td>oop simulation</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/horror>Horror List</a></td>
+		<td>1 (Easy)</td>
+		<td>graph bfs</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/everywhere>I've Been Everywhere Man</a></td>
+		<td>0 (Beginner)</td>
+		<td>set</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/icegrowth>Ice Growth</a></td>
+		<td>2 (Medium)</td>
+		<td>binary-search</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/increasingsubsequence>Increasing Subsequence</a></td>
+		<td>2 (Medium)</td>
+		<td>dp lis</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/interplanetarytunnels>Interplanetary Tunnels</a></td>
+		<td>1 (Easy)</td>
+		<td>graph bfs</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/intuitiveelements>Intuitive Elements</a></td>
+		<td>1 (Easy)</td>
+		<td>basic loop string</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/jobqualifications>Job Qualifications</a></td>
+		<td>2 (Medium)</td>
+		<td>set big-input</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/karlcoder>Karl Coder</a></td>
+		<td>2 (Medium)</td>
+		<td>binary-search interactive</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/labourlaws>Labour Laws</a></td>
+		<td>1 (Easy)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/leftbeehind>Left Beehind</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic loop if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/memoriesofpassportcontrol>Memories of Passport Control</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/nodup>No Duplicates</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic set</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/oceancurrents>Ocean Currents</a></td>
+		<td>2.5 (Medium+)</td>
+		<td>graph 0-1-bfs</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/pizza>Pizza Delivery</a></td>
+		<td>2 (Medium)</td>
+		<td>dp 2d-list</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/pokerhand>Poker Hand</a></td>
+		<td>0 (Beginner)</td>
+		<td>dictionary string</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/commercials>Radio Commercials</a></td>
+		<td>1 (Easy)</td>
+		<td>dp range-sum</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/reachableroads>Reachable Roads</a></td>
+		<td>1 (Easy)</td>
+		<td>graph bfs dfs union-find</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/riffleshuffle>Riffle Shuffle</a></td>
+		<td>2 (Medium)</td>
+		<td>list function</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/roompainting>Room Painting</a></td>
+		<td>1 (Easy)</td>
+		<td>list sorting</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/netthjonaplass>Server Space</a></td>
+		<td>1 (Easy)</td>
+		<td>basic list</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/shandy>Shandy</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/sortofsorting>Sort of Sorting</a></td>
+		<td>1 (Easy)</td>
+		<td>sorting</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/stopwatch>Stopwatch</a></td>
+		<td>1 (Easy)</td>
+		<td>basic loop</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/sweetdreams>Sweet Dreams</a></td>
+		<td>1 (Easy)</td>
+		<td>basic loop if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/testingleds>Testing LEDs</a></td>
+		<td>1 (Easy)</td>
+		<td>basic loop sorting</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/trollkarlentheodor>The Wizard Theodor</a></td>
+		<td>2 (Medium)</td>
+		<td>binary-search bsta</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/vacationspace>Vacation Space</a></td>
+		<td>1.5 (Easy)</td>
+		<td>list sorting</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/wakeupcall>Wake up call</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic if-else</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/whatdoesthefoxsay>What does the fox say?</a></td>
+		<td>1 (Easy)</td>
+		<td>loop string</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/kmh>km/h</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic loop</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/lvable>lv-able</a></td>
+		<td>0 (*Beginner)</td>
+		<td>basic if-else string</td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/aleidibio>Á leið í bíó</a></td>
+		<td>0 (Beginner)</td>
+		<td>basic</td>
+	</tr>
+</table>
+
+<script>
+function tagFilter() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("tagInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("problemTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById('problemTable');
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
