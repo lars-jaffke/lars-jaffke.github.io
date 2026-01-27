@@ -8,44 +8,98 @@
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: min(100%, 600px);
+  width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
 
-table {
-  width: min(100%, 600px);
-  border: 2px solid #000000;
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: system-ui, sans-serif;
 }
 
-th {
-  cursor: pointer;
-}
-
-th, td {
+.data-table th,
+.data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
   text-align: left;
-  padding: 8px;
 }
 
-tr {
-	border: solid #000;
-	border-width: 1px 0;
+.data-table th {
+  background: #f8fafc;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
 }
 
-th {
-    background-color: #bacbf2;
+.data-table tr:hover {
+  background: #f9fafb;
 }
+
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tag-basic {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.tag-controlflow {
+  background: #ecfeff;
+  color: #0f766e;
+}
+
+.tag-datastructure {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.tag-problem {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.tag-principle {
+  background: #ddf28e;
+  color: #136a82;
+}
+
+.tag-algorithm {
+  background: #f8e493;
+  color: #624a08;
+}
+
+.tag-special {
+	background: #fbb3dd;
+	color: #600038;
+}
+
 
 </style>
 </head>
 <body>
 
 <input type="text" id="tagInput" onkeyup="tagFilter()" 
-    placeholder="Filter for single tags..." title="Type in a tag">    
+    placeholder="Filter for tags..." title="Type in a tag">    
 
-<table id="problemTable">
+<table class="data-table" id="problemTable">
 	<tr>
 		<th onclick="sortTable(0)">Problem</th>
 		<th onclick="sortTable(1)">Difficulty</th>
@@ -54,352 +108,397 @@ th {
 	<tr>
 		<td><a href=https://open.kattis.com/problems/13floors>13 Floors</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/99problems>99 Problems</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/cats>A Feast for Cats</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">mst prim kruskal</td>
+		<td class="hideable tags"><span class="tag tag-problem">mst</span><span class="tag tag-algorithm">prim</span><span class="tag tag-algorithm">kruskal</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/alittleleftoverpizza>A Little Leftover Pizza</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">dictionary</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">dictionary</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/areal>A Real Challenge</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic import</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-principle">import</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/addtwonumbers>Add Two Numbers</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/amanda>Amanda Lounges</a></td>
 		<td>3 (Hard)</td>
-		<td class="hideable">graph bfs</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">bfs</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/arithmeticadaptation>Arithmetic Adaptation</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/artinstallation>Art Installation</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">basic if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/bankclosing>Bank Closing</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">heap interactive</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">heap</span><span class="tag tag-problem">interactive</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/blackthorn>Blackthorn</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic if-else string</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span><span class="tag tag-datastructure">string</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/bumped>Bumped!</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">graph sssp dijkstra</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-problem">sssp</span><span class="tag tag-algorithm">dijkstra</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/busiestantlevel>Busiest Ant Level</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">graph bfs</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">bfs</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/bustlingbusride>Bustling Busride</a></td>
+		<td>3 (Hard)</td>
+		<td class="hideable tags"><span class="tag tag-principle">dp</span><span class="tag tag-special">?</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/butiwanttowin>But I Want to Win</a></td>
+		<td>0.5 (Beginner)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">list</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/callforproblemsround2>Call for Problems Round 2</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic set</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">set</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/catinabox>Cat in a Box</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/classphoto>Class Photo</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/classrooms>Classrooms</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">bst</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">bst</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/clubpizza>Club Pizza</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">dictionary sorting</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">dictionary</span><span class="tag tag-algorithm">sorting</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/conveyorbeltsushi>Conveyor Belt Sushi</a></td>
+		<td>1.5 (Easy)</td>
+		<td class="hideable tags"><span class="tag tag-principle">oop</span><span class="tag tag-principle">simulation</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/cupsandballs>Cups and Balls</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic simulation</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-principle">simulation</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/cuttingcorners2>Cutting Corners</a></td>
+		<td>0 (Beginner)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/democraticnaming>Democratic Naming</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">list dictionary</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">list</span><span class="tag tag-datastructure">dictionary</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/dickensiandictionary>Dickensian Dictionary</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic loop if-else string</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span><span class="tag tag-controlflow">if-else</span><span class="tag tag-datastructure">string</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/easierdonethansaid>Easier Done than Said?</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic string tedious</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">string</span><span class="tag tag-special">tedious</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/kvallsfika>Evening Fika</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic sorting</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-algorithm">sorting</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/vaeltetskorsten>Fallen Chimney</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic loop</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/figureskating>Figure Skating</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic list</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">list</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/findtheluckynumbers>Find the Lucky Numbers</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic 2d-list</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">2d-list</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/findingforks>Finding forks</a></td>
 		<td>0.5 (Beginner)</td>
-		<td class="hideable">basic list</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">list</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/freckles>Freckles</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">mst-euclidean</td>
+		<td class="hideable tags"><span class="tag tag-problem">mst-euclidean</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/friendofafriend>Friend of a Friend</a></td>
 		<td>2.5 (Medium+)</td>
-		<td class="hideable">union-find</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">union-find</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/froshweek2>Frosh Week</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">sorting loop</td>
+		<td class="hideable tags"><span class="tag tag-algorithm">sorting</span><span class="tag tag-controlflow">loop</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/gottatradesomeofem>Gotta Trade Some of 'Em</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">graph bfs dfs</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">bfs</span><span class="tag tag-algorithm">dfs</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/grandpabernie>Grandpa Bernie</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">list dictionary</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">list</span><span class="tag tag-datastructure">dictionary</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/grassseed>Grass Seed Inc.</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic loop</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/greetingcard>Greeting Card</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">set</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">set</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/gestalisti>Guest List</a></td>
 		<td>0.5 (Beginner)</td>
-		<td class="hideable">basic set simulation</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">set</span><span class="tag tag-principle">simulation</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/hackaholics>Hack-a-Holics</a></td>
+		<td>0 (*Beginner)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/halloweenloot>Halloween Loot</a></td>
 		<td>3 (Hard)</td>
-		<td class="hideable">dp</td>
+		<td class="hideable tags"><span class="tag tag-principle">dp</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/happyhookup>Happy Hookup</a></td>
+		<td>1 (Easy)</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">dfs</span><span class="tag tag-algorithm">bfs</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/hello>Hello World!</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/historyofbeerpong>History of Beer Pong</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">oop simulation</td>
+		<td class="hideable tags"><span class="tag tag-principle">oop</span><span class="tag tag-principle">simulation</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/horror>Horror List</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">graph bfs</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">bfs</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/everywhere>I've Been Everywhere Man</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">set</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">set</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/icegrowth>Ice Growth</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">binary-search</td>
+		<td class="hideable tags"><span class="tag tag-algorithm">binary-search</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/increasingsubsequence>Increasing Subsequence</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">dp lis</td>
+		<td class="hideable tags"><span class="tag tag-principle">dp</span><span class="tag tag-problem">lis</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/interplanetarytunnels>Interplanetary Tunnels</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">graph bfs</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">bfs</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/intuitiveelements>Intuitive Elements</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic loop string</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span><span class="tag tag-datastructure">string</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/jobqualifications>Job Qualifications</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">set big-input</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">set</span><span class="tag tag-special">big-input</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/karlcoder>Karl Coder</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">binary-search interactive</td>
+		<td class="hideable tags"><span class="tag tag-algorithm">binary-search</span><span class="tag tag-problem">interactive</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/labourlaws>Labour Laws</a></td>
-		<td>1 (Easy)</td>
-		<td class="hideable">basic if-else</td>
+		<td>1.5 (Easy)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/leftbeehind>Left Beehind</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic loop if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/memoriesofpassportcontrol>Memories of Passport Control</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/muchroomformushrooms>Much Room for Mushrooms</a></td>
+		<td>0.5 (Beginner)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/nodup>No Duplicates</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic set</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">set</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/oceancurrents>Ocean Currents</a></td>
 		<td>2.5 (Medium+)</td>
-		<td class="hideable">graph 0-1-bfs</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">0-1-bfs</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/pizza>Pizza Delivery</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">dp 2d-list</td>
+		<td class="hideable tags"><span class="tag tag-principle">dp</span><span class="tag tag-datastructure">2d-list</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/pokerhand>Poker Hand</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">dictionary string</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">dictionary</span><span class="tag tag-datastructure">string</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/popcount>Pop Count</a></td>
+		<td>0 (Beginner)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span><span class="tag tag-datastructure">string</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/commercials>Radio Commercials</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">dp range-sum</td>
+		<td class="hideable tags"><span class="tag tag-principle">dp</span><span class="tag tag-algorithm">range-sum</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/reachableroads>Reachable Roads</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">graph bfs dfs union-find</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">graph</span><span class="tag tag-algorithm">bfs</span><span class="tag tag-algorithm">dfs</span><span class="tag tag-datastructure">union-find</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/riffleshuffle>Riffle Shuffle</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">list function</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">list</span><span class="tag tag-controlflow">function</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/roompainting>Room Painting</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">list sorting</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">list</span><span class="tag tag-algorithm">sorting</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/netthjonaplass>Server Space</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic list</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-datastructure">list</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/shandy>Shandy</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/sortofsorting>Sort of Sorting</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">sorting</td>
+		<td class="hideable tags"><span class="tag tag-algorithm">sorting</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/stopwatch>Stopwatch</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic loop</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/sweetdreams>Sweet Dreams</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic loop if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span><span class="tag tag-controlflow">if-else</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/testingleds>Testing LEDs</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">basic loop sorting</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span><span class="tag tag-algorithm">sorting</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/trollkarlentheodor>The Wizard Theodor</a></td>
 		<td>2 (Medium)</td>
-		<td class="hideable">binary-search bsta</td>
+		<td class="hideable tags"><span class="tag tag-algorithm">binary-search</span><span class="tag tag-principle">bsta</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/vacationspace>Vacation Space</a></td>
 		<td>1.5 (Easy)</td>
-		<td class="hideable">list sorting</td>
+		<td class="hideable tags"><span class="tag tag-datastructure">list</span><span class="tag tag-algorithm">sorting</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/wakeupcall>Wake up call</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic if-else</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span></td>
+	</tr>
+	<tr>
+		<td><a href=https://open.kattis.com/problems/waterslidewasteeasy>Water Slide Waste (Easy)</a></td>
+		<td>0 (Beginner)</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/whatdoesthefoxsay>What does the fox say?</a></td>
 		<td>1 (Easy)</td>
-		<td class="hideable">loop string</td>
+		<td class="hideable tags"><span class="tag tag-controlflow">loop</span><span class="tag tag-datastructure">string</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/kmh>km/h</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic loop</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">loop</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/lvable>lv-able</a></td>
 		<td>0 (*Beginner)</td>
-		<td class="hideable">basic if-else string</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span><span class="tag tag-controlflow">if-else</span><span class="tag tag-datastructure">string</span></td>
 	</tr>
 	<tr>
 		<td><a href=https://open.kattis.com/problems/aleidibio>Á leið í bíó</a></td>
 		<td>0 (Beginner)</td>
-		<td class="hideable">basic</td>
+		<td class="hideable tags"><span class="tag tag-basic">basic</span></td>
 	</tr>
 </table>
 
@@ -417,6 +516,33 @@ function toggleTags() {
 }
 
 function tagFilter() {
+  var input, filter, table, tr, td, i, j, txtValue, chk;
+  input = document.getElementById("tagInput");
+  filter = input.value.toUpperCase();
+  filter = filter.split(' ');
+  table = document.getElementById("problemTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+	chk = true;
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+	  txtValue = txtValue.toUpperCase();
+	  for (j = 0; j < filter.length; j++) {
+		if (!txtValue.includes(filter[j])) {
+			tr[i].style.display = "none";
+			chk = false;
+			break;
+		}
+	  }
+	  if (chk) {
+		tr[i].style.display = "";
+	  }
+    }       
+  }
+}
+
+function tagFilterOld() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("tagInput");
   filter = input.value.toUpperCase();
